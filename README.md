@@ -44,9 +44,10 @@ A modern full-stack **E-Commerce web application** built using **Next.js (App Ro
 ```bash
 git clone https://github.com/yourusername/ecommerce-app.git
 cd ecommerce-app
-
+```
 
 2️⃣ Install Dependencies
+```bash
 npm install
 
 3️⃣ Setup Environment Variables
@@ -56,10 +57,11 @@ Create a .env file (use .env.example as a reference):
 MONGODB_URI='mongodb+srv://subhrat123:subhrat123@cluster0.tu8ao.mongodb.net/'
 JWT_SECRET=subhrat123
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
-
+```
 4️⃣ Run the Development Server
+```bash
 npm run dev
-
+```
 
 App will run on:
 👉 http://localhost:3000
