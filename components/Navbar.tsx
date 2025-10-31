@@ -10,7 +10,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
-
+console.log( 'user in navbar:', user);
   return (
     <nav className="bg-pink-600 text-white px-6 py-4 shadow-md sticky top-0 z-50">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
@@ -34,7 +34,7 @@ export default function Navbar() {
             <>
               <span className="flex items-center gap-2 bg-pink-700 px-3 py-1 rounded-full text-sm">
                 <User size={16} />
-                {user?.username || "User"}
+                {user?.name || "User"}
               </span>
               <button
                 onClick={logout}
@@ -73,7 +73,7 @@ export default function Navbar() {
             <>
               <div className="flex items-center gap-2 bg-pink-800 px-3 py-2 rounded-lg text-sm">
                 <User size={16} />
-                {user?.username || "User"}
+                {user?.name || "User"}
               </div>
               <button
                 onClick={() => {
