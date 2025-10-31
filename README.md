@@ -28,7 +28,13 @@ A modern full-stack **E-Commerce web application** built using **Next.js (App Ro
 
 ## ⚙️ Tech Stack
 
-<pre> | **Category** | **Technology** | |---------------|----------------| | **Frontend** | React.js, Context API, Vite | | **Backend** | Node.js, Express.js | | **Database** | MongoDB, Mongoose | | **Authentication** | JWT, bcrypt | | **File Uploads** | Multer | | **Styling** | CSS / Tailwind (based on setup) | </pre>
+| Layer | Technology |
+|-------|-------------|
+| **Frontend** | Next.js (App Router), React, Tailwind CSS |
+| **Backend** | Next.js API Routes, Node.js |
+| **Database** | MongoDB (Mongoose) |
+| **Auth** | JWT Authentication |
+| **Deployment** | Ready for Vercel / Render |
 
 ---
 
@@ -59,6 +65,7 @@ App will run on:
 👉 http://localhost:3000
 
 🧩 Rendering Strategies Used
+
 Page	Rendering Strategy	Reason
 / (Home)	Server Component (SSR)	Fetches product list directly from server for SEO and fast load
 /products/[slug]	Client-side Rendering (CSR)	Fetches product dynamically using useEffect
@@ -98,9 +105,6 @@ Maintaining cart persistence	Used CartContext with local storage
 Handling image uploads	Implemented /api/upload with formData support
 Protecting admin routes	Created withAuth.ts middleware for token validation
 Rendering performance	Used hybrid rendering (Server + Client Components)
-
-<pre> | **Method** | **Endpoint** | **Description** | |-------------|--------------|-----------------| | POST | `/api/auth/register` | Register new user | | POST | `/api/auth/login` | Login user | | GET | `/api/products` | Get all products | | POST | `/api/admin/products/add` | Add new product (Admin only) | | POST | `/api/upload` | Upload product image | | GET | `/api/admin/stats` | Get admin stats | </pre>
-
 
 Added JWT authentication for Admin Dashboard
 
