@@ -1,87 +1,44 @@
-🛍️ E-Commerce App- ShopEase (Next.js + MongoDB)
+# 🛍️ E-Commerce App — **ShopEase** (Next.js + MongoDB)
 
-A modern full-stack E-Commerce web application built using Next.js (App Router), MongoDB, and TypeScript, featuring user authentication, admin product management, and a responsive shopping cart — all styled with a pink modern theme 💖.
+A modern full-stack **E-Commerce web application** built using **Next.js (App Router)**, **MongoDB**, and **TypeScript**, featuring user authentication, admin product management, and a responsive shopping cart — all styled with a **pink modern theme** 💖.
 
-🚀 Features
-🧑‍💻 User Side
+---
 
-Browse and view products
+## 🚀 Features
 
-View detailed product pages (/products/[slug])
+### 🧑‍💻 User Side
+- 🛒 Browse and view products  
+- 🔍 View detailed product pages (`/products/[slug]`)  
+- ➕ Add/remove items from cart (`/cart`)  
+- 💾 Persisted cart using context  
+- 💅 Responsive and elegant UI  
 
-Add/remove items from cart (/cart)
+### 🧑‍💼 Admin Panel
+- 🧭 Admin dashboard (`/admin`)  
+- 🧰 Create, edit, and delete products  
+- 📊 View platform statistics (`/api/admin/stats`)  
+- 🖼️ Upload product images (`/api/upload`)  
 
-Persisted cart using context
+### 🔒 Authentication
+- 🔐 Login and signup using `/login` and `/api/auth`  
+- 🪪 JWT-based authentication and authorization  
+- 🚫 Middleware-protected admin routes  
 
-Responsive and elegant UI
+---
 
-🧑‍💼 Admin Panel
+## ⚙️ Tech Stack
 
-Admin dashboard (/admin)
+<pre> | **Category** | **Technology** | |---------------|----------------| | **Frontend** | React.js, Context API, Vite | | **Backend** | Node.js, Express.js | | **Database** | MongoDB, Mongoose | | **Authentication** | JWT, bcrypt | | **File Uploads** | Multer | | **Styling** | CSS / Tailwind (based on setup) | </pre>
 
-Create, edit, and delete products
+---
 
-View platform statistics (/api/admin/stats)
+## 🔧 Setup Instructions
 
-Upload product images (/api/upload)
-
-🔒 Authentication
-
-Login and signup using /login and /api/auth
-
-JWT-based authentication and authorization
-
-Middleware-protected admin routes
-
-🧭 Folder Structure
-app/
- ├── admin/                 # Admin dashboard and product management
- ├── api/                   # API routes (Next.js App Router)
- │   ├── admin/stats/       # Admin stats API
- │   ├── auth/              # Authentication APIs
- │   ├── dashboard/         # Dashboard API
- │   ├── products/          # Product CRUD APIs
- │   ├── test/              # Test endpoints
- │   ├── upload/            # Image upload API
- │   └── users/             # User management API
- ├── cart/                  # Cart page
- ├── dashboard/             # User dashboard
- ├── login/                 # Login page
- ├── products/[slug]/       # Product details page
- ├── layout.tsx             # Root layout
- ├── page.tsx               # Homepage
-components/
- ├── Navbar.tsx             # Top navigation bar
- └── ProductList.tsx        # Product listing component
-context/
- ├── AuthContext.tsx        # Authentication context
- └── CartContext.tsx        # Cart management context
-lib/
- ├── auth.ts                # Client-side auth helpers
- ├── authServer.ts          # Server-side auth functions
- ├── dbConnect.ts           # MongoDB connection setup
- ├── validations.ts         # Input validations
- └── withAuth.ts            # Middleware for route protection
-models/
- ├── Products.ts            # Product schema
- └── Users.ts               # User schema
-public/
- └── uploads/               # Uploaded images
-types/
- ├── index.d.ts             # Type definitions
- └── next-auth.d.ts         # Auth type definitions
-
-⚙️ Tech Stack
-Layer	Technology
-Frontend	Next.js (App Router), React, Tailwind CSS
-Backend	Next.js API Routes, Node.js
-Database	MongoDB (Mongoose)
-Auth	JWT Authentication
-Deployment	Ready for Vercel / Render
-🔧 Setup Instructions
-1️⃣ Clone the Repository
+### 1️⃣ Clone the Repository
+```bash
 git clone https://github.com/yourusername/ecommerce-app.git
 cd ecommerce-app
+
 
 2️⃣ Install Dependencies
 npm install
@@ -90,9 +47,9 @@ npm install
 
 Create a .env file (use .env.example as a reference):
 
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-NEXTAUTH_SECRET=your_next_auth_secret
+MONGODB_URI='mongodb+srv://subhrat123:subhrat123@cluster0.tu8ao.mongodb.net/'
+JWT_SECRET=subhrat123
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
 4️⃣ Run the Development Server
 npm run dev
@@ -141,11 +98,9 @@ Maintaining cart persistence	Used CartContext with local storage
 Handling image uploads	Implemented /api/upload with formData support
 Protecting admin routes	Created withAuth.ts middleware for token validation
 Rendering performance	Used hybrid rendering (Server + Client Components)
-📸 Screenshots
 
-(Add screenshots of your Home, Product, Cart, Admin, and Login pages here)
+<pre> | **Method** | **Endpoint** | **Description** | |-------------|--------------|-----------------| | POST | `/api/auth/register` | Register new user | | POST | `/api/auth/login` | Login user | | GET | `/api/products` | Get all products | | POST | `/api/admin/products/add` | Add new product (Admin only) | | POST | `/api/upload` | Upload product image | | GET | `/api/admin/stats` | Get admin stats | </pre>
 
-🏁 Bonus (Optional)
 
 Added JWT authentication for Admin Dashboard
 
