@@ -106,7 +106,7 @@ const dbConnect = async () => {
 };
 
 export default dbConnect;
-
+```
 
 ## 🧾 Challenges & Solutions
 
