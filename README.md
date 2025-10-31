@@ -66,48 +66,66 @@ npm run dev
 App will run on:
 👉 http://localhost:3000
 
-🧩 Rendering Strategies Used
+## 🧩 Rendering Strategies Used
 
-Page	Rendering Strategy	Reason
-/ (Home)	Server Component (SSR)	Fetches product list directly from server for SEO and fast load
-/products/[slug]	Client-side Rendering (CSR)	Fetches product dynamically using useEffect
-/cart	Client Component	Uses React Context (cart updates on client)
-/admin	CSR (Protected)	Fetches and updates data after login
-/recommendations (optional)	Hybrid (Server + Client)	Server fetch for data + client interactivity
-🧠 Data Flow
+| Page | Rendering Strategy | Reason |
+|------|--------------------|---------|
+| `/` (Home) | **Server Component (SSR)** | Fetches product list directly from server for SEO and fast load |
+| `/products/[slug]` | **Client-side Rendering (CSR)** | Fetches product dynamically using `useEffect` |
+| `/cart` | **Client Component** | Uses React Context (cart updates on client) |
+| `/admin` | **CSR (Protected)** | Fetches and updates data after login |
+| `/recommendations` *(optional)* | **Hybrid (Server + Client)** | Server fetch for data + client interactivity |
 
-Frontend makes requests to API routes inside /api/...
 
-API routes connect to MongoDB using dbConnect.ts
+## 🧠 Data Flow
 
-Data is validated in /lib/validations.ts
+- Frontend makes requests to API routes inside `/api/...`  
+- API routes connect to MongoDB using `dbConnect.ts`  
+- Data is validated in `/lib/validations.ts`  
+- Responses are returned as JSON → rendered on client/server as per route type  
+- Authenticated routes check tokens using middleware (`withAuth.ts`)  
 
-Responses are returned as JSON → rendered on client/server as per route type
+---
 
-Authenticated routes check tokens using middleware (withAuth.ts)
+## 🧱 Database Setup
 
-🧱 Database Setup
+- MongoDB models are defined in:  
+  - `/models/Products.ts`  
+  - `/models/Users.ts`  
 
-MongoDB models are defined in /models/Products.ts and /models/Users.ts
+- Each API route imports `dbConnect()` to ensure the connection  
 
-Each API route imports dbConnect() to ensure the connection
+**Example connection (`/lib/dbConnect.ts`):**
 
-Example connection:
-
+```ts
 import mongoose from "mongoose";
+
 const dbConnect = async () => {
   if (mongoose.connections[0].readyState) return;
   await mongoose.connect(process.env.MONGODB_URI!);
 };
+
 export default dbConnect;
 
-🧾 Challenges & Solutions
-Challenge	Solution
-Maintaining cart persistence	Used CartContext with local storage
-Handling image uploads	Implemented /api/upload with formData support
-Protecting admin routes	Created withAuth.ts middleware for token validation
-Rendering performance	Used hybrid rendering (Server + Client Components)
+
+## 🧾 Challenges & Solutions
+
+| Challenge | Solution |
+|------------|-----------|
+| Maintaining cart persistence | Used `CartContext` with `localStorage` |
+| Handling image uploads | Implemented `/api/upload` with `formData` support |
+| Protecting admin routes | Created `withAuth.ts` middleware for token validation |
+| Rendering performance | Used hybrid rendering (Server + Client Components) |
+
 
 Added JWT authentication for Admin Dashboard
 
 Server Components for faster initial rendering
+
+## 🧑‍💻 Author
+
+**Subhrat Verma**  
+_Web Developer | MERN Stack | AI Enthusiast_  
+
+📧 **Email:** [subhratverma@gmail.com](mailto:subhratverma@gmail.com)  
+🌐 **Portfolio:** Coming soon...
